@@ -1,0 +1,22 @@
+    // ------- debug--------
+      myAircraft.setTailNumber("N1234Z");
+      System.out.println(myAircraft.getTailNumber());
+      myAircraft.setCockpitLocation("Front");
+      System.out.println(myAircraft.getCockpitLocation());
+      myAircraft.setPropellerType("Fixed Pitch Propeller");
+      System.out.println(myAircraft.getPropellerType());
+      myAircraft.setWingsType("Rogallo");
+      System.out.println(myAircraft.getWingsType());
+
+
+    // ------- subclass using base class's method --------
+      myGlider.setTailNumber("ABC123");
+      System.out.println(myGlider.getTailNumber());
+    
+    // ------- subclass using its own method ----------
+      myGlider.setEngine(false);
+      System.out.println(myGlider.getEngine());
+      myJet.setFuel("Jet A");
+      System.out.println(myJet.getFuel());
+      myHelicopter.setBlade(true);
+      System.out.println(myHelicopter.getBlade());
