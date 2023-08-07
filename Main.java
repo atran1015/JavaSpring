@@ -8,17 +8,21 @@
 
 public class Main {
     public static void main(String[] args) {
+      // Creating objects
+      Aircraft myAircraft = new Aircraft("ZS1000", "Front", "11 ft", 2, 60, 40);
+      Glider myGlider = new Glider("YX2000", "Front", "50 ft", 1, 30, 15, "Beagle Husky");
+      Jet myJet = new Jet("N904DE", "Front", "38.7 ft", 2, 13, 24, "Jet A-1", "Turbojet");
+      Helicopter myHelicopter = new Helicopter("N721AF", "Front", "20 ft", 3, 45, 33, 14, 500);
 
-      Glider myGlider = new Glider();
-      Jet myJet = new Jet();
-      Helicopter myHelicopter = new Helicopter();
-
-      // Creating objects and calling the objects' methods
-      Aircraft myAircraft = new Aircraft("ZS1000", "Front", "6 ft", 2, 60, 40);
-      System.out.println(myAircraft.getNumberOfWheels());
-      myAircraft.fly();
-
-      System.out.println("This aircraft's tail number is " + myAircraft.getTailNumber());      
+      // Printing instances to console
+      System.out.println("---------- Aircraft's details ----------");
+      myAircraft.printDetails();
+      System.out.println("---------- Glider's details ----------");
+      myGlider.printDetails();
+      System.out.println("---------- Jet's details ----------");
+      myJet.printDetails();
+      System.out.println("---------- Helicopter's details ----------");
+      myHelicopter.printDetails();    
     }
 }
 
@@ -92,6 +96,14 @@ public class Aircraft {
     public void land() {
         System.out.println("The Aircraft is landing.");
     }
+    public void printDetails() {
+        System.out.println("Tail Number: " + getTailNumber());
+        System.out.println("Cockpit Location: " + getCockpitLocation());
+        System.out.println("Wings Span Length: " + getWingsSpan());
+        System.out.println("Number of Wheels: " + getNumberOfWheels());
+        System.out.println("Length: " + getLength());
+        System.out.println("Width: " + getWidth());
+    }
 }
 
 public class Glider extends Aircraft {
@@ -102,17 +114,27 @@ public class Glider extends Aircraft {
     public Glider() {}
 
     // Default Constructor
-    public Glider(String towPlaneName) {
+    public Glider(String tailNum, String cockpitLoc, String wingsLength, int wheelsNum, int length, int width, String towPlaneName) {
+        super(tailNum, cockpitLoc, wingsLength, wheelsNum, length, width);
         this.towPlane = towPlaneName;
     }
 
     // Setter and Getter
-    public void setEngine(String towPlaneName) {
+    public void setTowPlaneName(String towPlaneName) {
 		this.towPlane = towPlaneName;
 	}
-	public String getEngine() {
+	public String getTowPlaneName() {
 		return towPlane;
 	}
+    public void printDetails() {
+        System.out.println("Tail Number: " + getTailNumber());
+        System.out.println("Cockpit Location: " + getCockpitLocation());
+        System.out.println("Wings Span Length: " + getWingsSpan());
+        System.out.println("Number of Wheels: " + getNumberOfWheels());
+        System.out.println("Length: " + getLength());
+        System.out.println("Width: " + getWidth());
+        System.out.println("Name of Towplane: " + getTowPlaneName());
+    }
 }
 
 public class Jet extends Aircraft {
@@ -124,7 +146,8 @@ public class Jet extends Aircraft {
     public Jet() {}
 
     // Default Constructor
-    public Jet(String fuel, String gasTurbine) {
+    public Jet(String tailNum, String cockpitLoc, String wingsLength, int wheelsNum, int length, int width, String fuel, String gasTurbine) {
+        super(tailNum, cockpitLoc, wingsLength, wheelsNum, length, width);
         this.fuel = fuel;
         this.gasTurbineType = gasTurbine;
     }
@@ -142,6 +165,16 @@ public class Jet extends Aircraft {
 	public String getGasTurbineType() {
 		return gasTurbineType;
 	}
+    public void printDetails() {
+        System.out.println("Tail Number: " + getTailNumber());
+        System.out.println("Cockpit Location: " + getCockpitLocation());
+        System.out.println("Wings Span Length: " + getWingsSpan());
+        System.out.println("Number of Wheels: " + getNumberOfWheels());
+        System.out.println("Length: " + getLength());
+        System.out.println("Width: " + getWidth());
+        System.out.println("Name of Fuel: " + getFuel());
+        System.out.println("Type of Gas-Turbine: " + getGasTurbineType());
+    }
 }
 
 public class Helicopter extends Aircraft {
@@ -153,7 +186,8 @@ public class Helicopter extends Aircraft {
     public Helicopter() {}
 
     // Default Constructor
-    public Helicopter(int bladeLength, int rpm) {
+    public Helicopter(String tailNum, String cockpitLoc, String wingsLength, int wheelsNum, int length, int width, int bladeLength, int rpm) {
+        super(tailNum, cockpitLoc, wingsLength, wheelsNum, length, width);
         this.lengthOfBlade = bladeLength;
         this.rotorRpm = rpm;
     }
@@ -171,4 +205,14 @@ public class Helicopter extends Aircraft {
 	public int getRotorRpm() {
 		return rotorRpm;
 	}
+    public void printDetails() {
+        System.out.println("Tail Number: " + getTailNumber());
+        System.out.println("Cockpit Location: " + getCockpitLocation());
+        System.out.println("Wings Span Length: " + getWingsSpan());
+        System.out.println("Number of Wheels: " + getNumberOfWheels());
+        System.out.println("Length: " + getLength());
+        System.out.println("Width: " + getWidth());
+        System.out.println("Length of Blade: " + getBladeLength());
+        System.out.println("Rotor RPM: " + getRotorRpm());
+    }
 }
