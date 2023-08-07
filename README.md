@@ -13,7 +13,3 @@ mvn spring-boot:run
 This project contains Main.java which hold objects, to run:
 
 java Main.java
-
-# Debug/Print Outputs
-
-prints.txt contains println statements to test methods from base class and subclass, copy and paste them into the Main class and run the program to see the output.
