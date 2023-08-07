@@ -8,17 +8,17 @@
 
 public class Main {
     public static void main(String[] args) {
-      // Creating objects
-      Aircraft myAircraft = new Aircraft();
+
       Glider myGlider = new Glider();
       Jet myJet = new Jet();
       Helicopter myHelicopter = new Helicopter();
 
-      // Calling the objects' methods
+      // Creating objects and calling the objects' methods
+      Aircraft myAircraft = new Aircraft("ZS1000", "Front", "6 ft", 2, 60, 40);
+      System.out.println(myAircraft.getNumberOfWheels());
       myAircraft.fly();
-      myGlider.fly();
-      myJet.fly();
-      myHelicopter.fly();
+
+      System.out.println("This aircraft's tail number is " + myAircraft.getTailNumber());      
     }
 }
 
@@ -26,36 +26,60 @@ public class Aircraft {
     // Attributes/Properties - an Aircraft have these in common
     private String tailNumber;
     private String cockpitLocation;
-    private String propellerType;
-    private String wingsType;
+    private String wingsSpan;
+    private int numberOfWheels;
+    private int length;
+    private int width;
 
     // Default Constructor
     public Aircraft() {}
 
+    // Default Constructor
+    public Aircraft(String tailNum, String cockpitLoc, String wingsLength, int wheelsNum, int length, int width) {
+        this.tailNumber = tailNum;
+        this.cockpitLocation = cockpitLoc;
+        this.wingsSpan = wingsLength;
+        this.numberOfWheels = wheelsNum;
+        this.length = length;
+        this.width = width;
+    }
+
     // Setters and Getters
-    public void setTailNumber(String tail) {
-        this.tailNumber = tail;
+    public void setTailNumber(String tailNum) {
+        this.tailNumber = tailNum;
     }
     public String getTailNumber() {
         return tailNumber;
     }
-    public void setCockpitLocation(String cockpit) {
-        this.cockpitLocation = cockpit;
+    public void setCockpitLocation(String cockpitLoc) {
+        this.cockpitLocation = cockpitLoc;
     }
     public String getCockpitLocation() {
         return cockpitLocation;
     }
-    public void setPropellerType(String propeller) {
-        this.propellerType = propeller;
+    public void setWingsSpan(String wingsLength) {
+        this.wingsSpan = wingsLength;
     }
-    public String getPropellerType() {
-        return propellerType;
+    public String getWingsSpan() {
+        return wingsSpan;
     }
-    public void setWingsType(String wings) {
-        this.wingsType = wings;
+    public void setNumberOfWheels(int wheelsNum) {
+        this.numberOfWheels = wheelsNum;
     }
-    public String getWingsType() {
-        return wingsType;
+    public int getNumberOfWheels() {
+        return numberOfWheels;
+    }
+    public void setLength(int length) {
+        this.length = length;
+    }
+    public int getLength() {
+        return length;
+    }
+    public void setWidth(int width) {
+        this.width = width;
+    }
+    public int getWidth() {
+        return width;
     }
 
     // Behaviors/Actions - methods
@@ -71,43 +95,38 @@ public class Aircraft {
 }
 
 public class Glider extends Aircraft {
-    // Unique to Glider - no engine
-    private boolean hasEngine;
+    // Unique to Glider - no engine, uses tow plane
+    private String towPlane;
 
     // Default Constructor
     public Glider() {}
 
     // Default Constructor
-    public Glider(boolean engine) {
-        this.hasEngine = engine;
+    public Glider(String towPlaneName) {
+        this.towPlane = towPlaneName;
     }
 
     // Setter and Getter
-    public void setEngine(boolean engine) {
-		this.hasEngine = engine;
+    public void setEngine(String towPlaneName) {
+		this.towPlane = towPlaneName;
 	}
-	public boolean getEngine() {
-		return hasEngine;
+	public String getEngine() {
+		return towPlane;
 	}
-
-    // Method override
-    @Override
-    public void fly() {
-        System.out.println("The Glider is gliding.");
-    }
 }
 
 public class Jet extends Aircraft {
-    // Unique to Jet - yes engine, yes gas-turbine
-    private boolean hasGasTurbine;
+    // Unique to Jet - gas-turbine, specific fuel
+    private String gasTurbineType;
     private String fuel;
+
     // Default Constructor
     public Jet() {}
 
     // Default Constructor
-    public Jet(String fuel, boolean gasTurbine) {
+    public Jet(String fuel, String gasTurbine) {
         this.fuel = fuel;
-        this.hasGasTurbine = gasTurbine;
+        this.gasTurbineType = gasTurbine;
     }
 
     // Setters and Getters
@@ -117,51 +136,39 @@ public class Jet extends Aircraft {
 	public String getFuel() {
 		return fuel;
 	}
-    public void setTurbine(boolean gasTurbine) {
-		this.hasGasTurbine = gasTurbine;
+    public void setGasTurbineType(String gasTurbine) {
+		this.gasTurbineType = gasTurbine;
 	}
-	public boolean getEngine() {
-		return hasGasTurbine;
+	public String getGasTurbineType() {
+		return gasTurbineType;
 	}
-
-    // Method override
-    @Override
-    public void fly() {
-        System.out.println("The Jet is going fast.");
-    }
 }
 
 public class Helicopter extends Aircraft {
-    // Unique to Heli - yes blade, yes rotor
-    private boolean hasBlade;
-    private boolean hasRotor;
+    // Unique to Heli - blade and rotor
+    private int lengthOfBlade;
+    private int rotorRpm;
 
     // Default Constructor
     public Helicopter() {}
 
     // Default Constructor
-    public Helicopter(boolean blade, boolean rotor) {
-        this.hasBlade = blade;
-        this.hasRotor = rotor;
+    public Helicopter(int bladeLength, int rpm) {
+        this.lengthOfBlade = bladeLength;
+        this.rotorRpm = rpm;
     }
 
     // Setters and Getters
-    public void setBlade(boolean blade) {
-		this.hasBlade = blade;
+    public void setBladeLength(int bladeLength) {
+		this.lengthOfBlade = bladeLength;
 	}
-	public boolean getBlade() {
-		return hasBlade;
+	public int getBladeLength() {
+		return lengthOfBlade;
 	}
-    public void setRotor(boolean rotor) {
-		this.hasRotor = rotor;
+    public void setRotorRpm(int rpm) {
+		this.rotorRpm = rpm;
 	}
-	public boolean getRotor() {
-		return hasRotor;
+	public int getRotorRpm() {
+		return rotorRpm;
 	}
-
-    // Method override
-    @Override
-    public void fly() {
-        System.out.println("The Helicopter is rotating its blade.");
-    }
 }
