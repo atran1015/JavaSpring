@@ -1,3 +1,5 @@
+package com.springboot.application.objects;
+
 public class Glider extends Aircraft {
     // Unique to Glider - no engine, uses tow plane
     private String towPlane;

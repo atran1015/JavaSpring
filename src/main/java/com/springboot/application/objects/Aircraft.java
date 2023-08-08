@@ -1,3 +1,6 @@
+package com.springboot.application.objects;
+
+
 public class Aircraft {
     // Attributes/Properties - an Aircraft have these in common
     private String tailNumber;

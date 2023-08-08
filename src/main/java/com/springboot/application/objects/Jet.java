@@ -1,3 +1,5 @@
+package com.springboot.application.objects;
+
 public class Jet extends Aircraft {
     // Unique to Jet - gas-turbine, specific fuel
     private String gasTurbineType;
