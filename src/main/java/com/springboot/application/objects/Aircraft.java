@@ -1,14 +1,13 @@
 package com.springboot.application.objects;
-
-
-public class Aircraft {
+// Abstract is being used because it's primarily for objects that are closely related (aircraft, heli, jet, etc)
+public abstract class Aircraft {
     // Attributes/Properties - an Aircraft have these in common
-    private String tailNumber;
-    private String cockpitLocation;
-    private String wingsSpan;
-    private int numberOfWheels;
-    private int length;
-    private int width;
+    protected String tailNumber;
+    protected String cockpitLocation;
+    protected String wingsSpan;
+    protected int numberOfWheels;
+    protected int length;
+    protected int width;
 
     // Default Constructor
     public Aircraft() {}
@@ -61,7 +60,7 @@ public class Aircraft {
         return width;
     }
 
-    // Behaviors/Actions - methods
+    // Behaviors/Actions - these methods can be used or overridden by subclasses
     public void takeOff() {
         System.out.println("The Aircraft is taking off.");
     }

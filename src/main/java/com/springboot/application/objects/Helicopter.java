@@ -28,6 +28,9 @@ public class Helicopter extends Aircraft {
 	public int getRotorRpm() {
 		return rotorRpm;
 	}
+
+    // Method override
+    @Override
     public void printDetails() {
         System.out.println("Tail Number: " + getTailNumber());
         System.out.println("Cockpit Location: " + getCockpitLocation());

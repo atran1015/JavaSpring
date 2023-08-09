@@ -20,6 +20,9 @@ public class Glider extends Aircraft {
 	public String getTowPlaneName() {
 		return towPlane;
 	}
+
+    // Method override
+    @Override
     public void printDetails() {
         System.out.println("Tail Number: " + getTailNumber());
         System.out.println("Cockpit Location: " + getCockpitLocation());

@@ -12,23 +12,18 @@ import com.springboot.application.objects.Jet;
 import com.springboot.application.objects.Helicopter;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 
+// This annotation marks the main class of a Sring Boot application
 @SpringBootApplication
 public class HelloSpringBoot {
     // Program is being ran in this main function
     public static void main(String[] args) {
-      // Creating objects
-      Aircraft myAircraft = new Aircraft("ZS1000", "Front", "11 ft", 2, 60, 40);
-      Glider myGlider = new Glider("YX2000", "Front", "50 ft", 1, 30, 15, "Beagle Husky");
-      Jet myJet = new Jet("N904DE", "Front", "38.7 ft", 2, 13, 24, "Jet A-1", "Turbojet");
-      Helicopter myHelicopter = new Helicopter("N721AF", "Front", "20 ft", 3, 45, 33, 14, 500);
+      // Creating objects - Aircraft itself is an abstract class, therefore, it can't be instantiated
+      Aircraft myGlider = new Glider("YX2000", "Front", "50 ft", 1, 30, 15, "Beagle Husky");
+      Aircraft myJet = new Jet("N904DE", "Front", "38.7 ft", 2, 13, 24, "Jet A-1", "Turbojet");
+      Aircraft myHelicopter = new Helicopter("N721AF", "Front", "20 ft", 3, 45, 33, 14, 500);
 
       // Printing instances to console
-      System.out.println("---------- Aircraft's details ----------");
-      myAircraft.printDetails();
       System.out.println("---------- Glider's details ----------");
       myGlider.printDetails();
       System.out.println("---------- Jet's details ----------");

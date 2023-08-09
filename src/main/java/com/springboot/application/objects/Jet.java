@@ -28,6 +28,9 @@ public class Jet extends Aircraft {
 	public String getGasTurbineType() {
 		return gasTurbineType;
 	}
+
+    // Method override
+    @Override
     public void printDetails() {
         System.out.println("Tail Number: " + getTailNumber());
         System.out.println("Cockpit Location: " + getCockpitLocation());
